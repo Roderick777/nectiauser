@@ -7,9 +7,9 @@ declare var $: any;
   styleUrls: ['./crear.component.scss']
 })
 export class CrearComponent implements OnInit, OnChanges {
-  @Input() activo: boolean;
   @Output() usuarioNuevo = new EventEmitter();
   @Output() usuarioEditado = new EventEmitter();
+  @Input() activo: boolean;
   @Input() usuarioEditar: any;
 
   accion: string = 'crear'
@@ -26,6 +26,7 @@ export class CrearComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
+  // Cada vez que el componene recibe cambios verifica si va a crear o editar y realiza las preparaciones necesarias
   ngOnChanges(): void {
     console.log('cambios', this.usuarioEditar)
     if(this.usuarioEditar == null) {
@@ -39,6 +40,7 @@ export class CrearComponent implements OnInit, OnChanges {
     }
   }
 
+  //Limpiar el formulario con los valores por defecto
   reiniciarForm() {
     this.formulario = {
       nombre    : '',
@@ -47,6 +49,7 @@ export class CrearComponent implements OnInit, OnChanges {
     }
   }
 
+  // Función que permite validar que los campos del formulario no estén vacios
   validarFormulario(): boolean {
     if(this.formulario.nombre.length == 0){
       $("#mensaje__toast").toast('show')
@@ -64,7 +67,7 @@ export class CrearComponent implements OnInit, OnChanges {
     return true
   }
 
-
+  // Funcion que guarda los datos del formulario, crea o actualiza segun corresponda
   guardarUsuario() {
     if(this.validarFormulario()){
       if(this.accion == 'crear') {
@@ -77,6 +80,7 @@ export class CrearComponent implements OnInit, OnChanges {
     }
   }
 
+  // Accion para crear un usuario
   accionCrear() {
     let usuarios : any = localStorage.getItem('usuarios_nectia')
     let datos = []
@@ -86,6 +90,7 @@ export class CrearComponent implements OnInit, OnChanges {
     this.usuarioNuevo.emit(this.formulario);
   }
 
+  // Accion para editar un usuario
   accionEditar() {
     let usuarios : any = localStorage.getItem('usuarios_nectia')
     let datos = []

@@ -21,12 +21,13 @@ export class InicioComponent {
 
   constructor() { }
 
+  // Accion que se ejecuta al hacer click en el boton agregar Usuarios
   verModalCrear(): void {
     this.usuarioActual = null
     $("#modal__crear").modal()
-
   }
 
+  //Evento que se ejecuta luego de crear un nuevo usuario
   usuarioCreado(evento) {
     if(this.usuarios == null) {
       this.usuarios = []
@@ -34,18 +35,20 @@ export class InicioComponent {
     this.usuarios.push(evento)
     $('#modal__crear').modal('hide')
   }
-
+  //Evento que se ejecuta luego de crear un nuevo usuario
   usuarioActualizado(evento) {
     this.usuarios[evento.indice] = evento
     $("#modal__crear").modal('hide')
   }
 
+  //Evento que se ejecuta antes de abrir el modal que permite editar los usuarios
   editarUsuario(usuario: any, indice: number) {
     usuario.indice = indice
     this.usuarioActual = usuario
     $("#modal__crear").modal()
   }
 
+  //Funcion que quita un usuario del listado correspondiente al indice del elemento sobre el cual se ejecuta la acción
   eliminarUsuario(usuario: any, indice: number) {
     let tiempo : number = 500
     let c = this;
