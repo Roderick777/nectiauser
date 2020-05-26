@@ -11,16 +11,15 @@ export class CrearComponent implements OnInit, OnChanges {
   @Output() usuarioNuevo = new EventEmitter();
   @Output() usuarioEditado = new EventEmitter();
   @Input() usuarioEditar: any;
-
+  
+  accion: string = 'crear'
+  indice: number = null
+  mensajeError: string = ''
   formulario: any = {
     nombre    : '',
     correo    : '',
     direccion : ''
   }
-
-  accion: string = 'crear'
-  indice: number = null
-  mensajeError: string = ''
 
   constructor() { }
 

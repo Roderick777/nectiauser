@@ -1,9 +1,21 @@
 <div class="contenedor">
     <app-crear [usuarioEditar]="usuarioActual" (usuarioEditado)="usuarioActualizado($event)" (usuarioNuevo)="usuarioCreado($event)"></app-crear>
     <div *ngIf="usuarios != null">
+
+        <div class="buscador p-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control buscador__input" [(ngModel)]="busqueda" placeholder="Búsqueda por nombre de usuario" aria-label="Búsqueda por nombre de usuario" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary" type="button" id="button-addon2">
+                        <fa-icon [icon]="faSearch"></fa-icon>
+                    </button>
+                </div>
+            </div>
+
+        </div>
         <div class="container-fluid">
             <div class="row" >
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let usuario of usuarios; let i = index">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let usuario of usuarios | buscador:busqueda; let i = index">
                     <div class="card mb-2">
                         <div class="card-body">
                             <div class="card__acciones">

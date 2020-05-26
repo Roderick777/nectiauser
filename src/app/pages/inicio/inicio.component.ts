@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faPlus, faEdit, faTrash, faAddressBook, faUser, faLocationArrow } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faEdit, faTrash, faAddressBook, faUser, faLocationArrow, faSearch } from '@fortawesome/free-solid-svg-icons';
 declare var $: any;
 @Component({
   selector: 'app-inicio',
@@ -12,10 +12,12 @@ export class InicioComponent {
   faTrash = faTrash;
   faAddressBook = faAddressBook; 
   faUser = faUser; 
+  faSearch = faSearch;
   faLocationArrow = faLocationArrow;
   creando : boolean = true 
   usuarios : any = (localStorage.getItem('usuarios_nectia') == null)? null : JSON.parse(localStorage.getItem('usuarios_nectia'))
   usuarioActual = null
+  busqueda: string = null
 
   constructor() { }
 

@@ -7,18 +7,22 @@ import { ComponentsModule } from './components/components.module';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { CrearComponent } from './components/crear/crear.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { BuscadorPipe } from './buscador.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent  
+    InicioComponent,
+    BuscadorPipe  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
