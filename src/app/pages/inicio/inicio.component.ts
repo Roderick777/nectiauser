@@ -28,6 +28,9 @@ export class InicioComponent {
   }
 
   usuarioCreado(evento) {
+    if(this.usuarios == null) {
+      this.usuarios = []
+    }
     this.usuarios.push(evento)
     $('#modal__crear').modal('hide')
   }
