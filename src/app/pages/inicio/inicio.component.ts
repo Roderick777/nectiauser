@@ -47,7 +47,7 @@ export class InicioComponent {
   }
 
   eliminarUsuario(usuario: any, indice: number) {
-    let tiempo = 500
+    let tiempo : number = 500
     let c = this;
     $('#usuario_'+ indice).fadeOut(tiempo);
     setTimeout(function(){
