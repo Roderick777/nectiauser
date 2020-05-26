@@ -63,7 +63,7 @@ export class CrearComponent implements OnInit, OnChanges {
       $("#mensaje__toast").toast('show')
       this.mensajeError = 'El campo "dirección" no puede estar vacío'
       return false
-    } else if(!this.validarEmail(this.formulario.correo)){
+    } else if(!this.validarCorreo(this.formulario.correo)){
       $("#mensaje__toast").toast('show')
       this.mensajeError = 'Ingrese un correo válido'
       return false
@@ -71,12 +71,9 @@ export class CrearComponent implements OnInit, OnChanges {
     return true
   }
 
-  validarEmail(valor) {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(valor)){
-      return true
-    } else {
-     return false
-    }
+  //Función para validar correo
+  validarCorreo(valor) {
+    return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(valor))? true : false
   }
 
   // Funcion que guarda los datos del formulario, crea o actualiza segun corresponda
