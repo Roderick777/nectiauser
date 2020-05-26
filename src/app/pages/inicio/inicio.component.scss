@@ -11,7 +11,6 @@ $color-texto : #777;
 .card{
     min-height: 150px;
     color: $color-texto;
-    // border-color: rgba($color-texto,.7);
     transition: all ease .5s;
     &:hover{
         box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.5);
