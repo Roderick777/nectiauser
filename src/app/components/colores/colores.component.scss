@@ -1,0 +1,34 @@
+.colores {
+    left: 50px;
+    top: 0px;
+    width: 200px;
+    position: absolute;
+    z-index: 300;
+    opacity: .3;
+    .azul {
+        background-color: #4D98D0;
+        width: 20%;
+        height: 10px;
+    }
+    .amarillo {
+        background-color: #FEB426;
+        width: 20%;
+        height: 10px;
+    }
+    .naranjo {
+        background-color: #E86104;
+        width: 20%;
+        height: 10px;
+    }
+    .rojo {
+        background-color: #BA2D35;
+        width: 20%;
+        height: 10px;
+    }
+    .morado {
+        background-color: #524164;
+        width: 20%;
+        height: 10px;
+    }
+}
+

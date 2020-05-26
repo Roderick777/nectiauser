@@ -10,6 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { BuscadorPipe } from './buscador.pipe';
 import { SinUsuarioComponent } from './components/sin-usuario/sin-usuario.component';
+import { ColoresComponent } from './components/colores/colores.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { SinUsuarioComponent } from './components/sin-usuario/sin-usuario.compon
   bootstrap: [AppComponent],
   entryComponents:[
     CrearComponent,
-    SinUsuarioComponent
+    SinUsuarioComponent,
+    ColoresComponent
   ]
 })
 export class AppModule { }

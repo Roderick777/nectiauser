@@ -15,13 +15,23 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let usuario of usuarios | buscador:busqueda; let i = index" [id]="'usuario_'+ i">
                     <div class="card mb-2">
                         <div class="card-body">
+                            <app-colores></app-colores>
                             <div class="card__acciones">
                                 <fa-icon (click)="editarUsuario(usuario, i)" class="card__accion mr-3" [icon]="faEdit"></fa-icon>
                                 <fa-icon (click)="eliminarUsuario(usuario, i)" class="card__accion" [icon]="faTrash"></fa-icon>
                             </div>
-                            <fa-icon [icon]="faUser"></fa-icon>&nbsp; {{ usuario.nombre }} <br>
-                            <fa-icon [icon]="faAddressBook"></fa-icon>&nbsp; {{ usuario.correo }} <br>
-                            <fa-icon [icon]="faLocationArrow"></fa-icon>&nbsp; {{ usuario.direccion }}
+                            <div class="row mt-3">
+                                <div class="col-1 col-md-2 card__icono"><fa-icon [icon]="faUser"></fa-icon></div>
+                                <div class="col-10 col-sm-7"> {{ usuario.nombre }} </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1 col-md-2 card__icono"><fa-icon [icon]="faAddressBook"></fa-icon></div>
+                                <div class="col-10 col-sm-7"> {{ usuario.correo }} </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1 col-md-2 card__icono"><fa-icon [icon]="faLocationArrow"></fa-icon></div>
+                                <div class="col-10 col-sm-7"> {{ usuario.direccion }} </div>
+                            </div>
                         </div>
                     </div>
                 </div>
