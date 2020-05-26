@@ -1,0 +1,36 @@
+<div class="contenedor">
+    <app-crear [usuarioEditar]="usuarioActual" (usuarioEditado)="usuarioActualizado($event)" (usuarioNuevo)="usuarioCreado($event)"></app-crear>
+    <div *ngIf="usuarios != null">
+        <div class="container-fluid">
+            <div class="row" >
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let usuario of usuarios; let i = index">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <div class="card__acciones">
+                                <fa-icon (click)="editarUsuario(usuario, i)" class="card__accion mr-3" [icon]="faEdit"></fa-icon>
+                                <fa-icon (click)="eliminarUsuario(usuario, i)" class="card__accion" [icon]="faTrash"></fa-icon>
+                            </div>
+                            <fa-icon [icon]="faUser"></fa-icon>&nbsp; {{ usuario.nombre }}
+                            <br>
+                            <fa-icon [icon]="faAddressBook"></fa-icon>&nbsp; {{ usuario.correo }}
+                            <br>
+                            <fa-icon [icon]="faLocationArrow"></fa-icon>&nbsp; {{ usuario.direccion }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-2" *ngIf="usuarios == null || usuarios.length == 0">
+        <div class="alert alert-primary" role="alert">
+            No hay usuarios agregados, para comenzar a crear usuarios haz click en el botón con el símbolo "+" que se encuentra en la parte inferior derecha de la pantalla
+        </div>
+    </div>
+
+    <div class="contenedor__flotante">
+        <button  class="btn btn-primary boton boton__flotante" (click)="verModalCrear()" data-toggle="modal" data-target="#modal__crear" >
+            <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
+    </div>
+</div>

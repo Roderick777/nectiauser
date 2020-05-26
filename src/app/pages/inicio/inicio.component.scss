@@ -1,0 +1,20 @@
+@import '../../../styles/variables.scss';
+
+.card{
+    min-height: 150px;
+    color: #999;
+    .card__acciones{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding: 0px 10px;
+        .card__accion{
+            cursor: pointer;
+            color: map-get($theme-colors, "primary");
+            transition: all ease .3s;
+            &:hover{
+                opacity: .7;
+            }
+        }
+    }
+}
