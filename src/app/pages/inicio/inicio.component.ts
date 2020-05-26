@@ -57,7 +57,7 @@ export class InicioComponent {
       datos.splice(indice, 1)
       localStorage.setItem('usuarios_nectia', JSON.stringify(datos))
       c.usuarios = datos
-    }, tiempo + 100)
+    }, tiempo * 2)
   }
 
 }
