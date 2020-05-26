@@ -35,6 +35,7 @@ export class InicioComponent {
     this.usuarios.push(evento)
     $('#modal__crear').modal('hide')
   }
+  
   //Evento que se ejecuta luego de crear un nuevo usuario
   usuarioActualizado(evento) {
     this.usuarios[evento.indice] = evento
