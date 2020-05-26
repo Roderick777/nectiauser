@@ -47,7 +47,7 @@ export class InicioComponent {
   }
 
   eliminarUsuario(usuario: any, indice: number) {
-    let tiempo = 300
+    let tiempo = 500
     let c = this;
     $('#usuario_'+ indice).fadeOut(tiempo);
     setTimeout(function(){
@@ -57,7 +57,7 @@ export class InicioComponent {
       datos.splice(indice, 1)
       localStorage.setItem('usuarios_nectia', JSON.stringify(datos))
       c.usuarios = datos
-    }, tiempo)
+    }, tiempo + 100)
   }
 
 }
