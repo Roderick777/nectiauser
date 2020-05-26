@@ -23,6 +23,8 @@ export class InicioComponent {
 
   verModalCrear(): void {
     this.usuarioActual = null
+    $("#modal__crear").modal()
+
   }
 
   usuarioCreado(evento) {

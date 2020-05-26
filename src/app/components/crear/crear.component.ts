@@ -11,7 +11,7 @@ export class CrearComponent implements OnInit, OnChanges {
   @Output() usuarioNuevo = new EventEmitter();
   @Output() usuarioEditado = new EventEmitter();
   @Input() usuarioEditar: any;
-  
+
   accion: string = 'crear'
   indice: number = null
   mensajeError: string = ''
@@ -30,10 +30,20 @@ export class CrearComponent implements OnInit, OnChanges {
     console.log('cambios', this.usuarioEditar)
     if(this.usuarioEditar == null) {
       this.accion = 'crear'
+      this.reiniciarForm()
     } else {
-      this.formulario = this.usuarioEditar
+      let parsear = JSON.stringify(this.usuarioEditar)
+      this.formulario = JSON.parse(parsear)
       this.accion = 'editar'
       this.indice = this.usuarioEditar.indice;
+    }
+  }
+
+  reiniciarForm() {
+    this.formulario = {
+      nombre    : '',
+      correo    : '',
+      direccion : ''
     }
   }
 
@@ -59,8 +69,10 @@ export class CrearComponent implements OnInit, OnChanges {
     if(this.validarFormulario()){
       if(this.accion == 'crear') {
         this.accionCrear()
+        this.reiniciarForm()
       } else {
         this.accionEditar()
+        this.reiniciarForm()
       }
     }
   }
