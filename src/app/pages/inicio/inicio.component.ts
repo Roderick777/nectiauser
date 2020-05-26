@@ -47,12 +47,17 @@ export class InicioComponent {
   }
 
   eliminarUsuario(usuario: any, indice: number) {
-    let usuarios : any = localStorage.getItem('usuarios_nectia')
-    let datos = []
-    datos = (usuarios == null || usuarios == 'null')? [] : JSON.parse(usuarios)
-    datos.splice(indice, 1)
-    localStorage.setItem('usuarios_nectia', JSON.stringify(datos))
-    this.usuarios = datos
+    let tiempo = 300
+    let c = this;
+    $('#usuario_'+ indice).fadeOut(tiempo);
+    setTimeout(function(){
+      let usuarios : any = localStorage.getItem('usuarios_nectia')
+      let datos = []
+      datos = (usuarios == null || usuarios == 'null')? [] : JSON.parse(usuarios)
+      datos.splice(indice, 1)
+      localStorage.setItem('usuarios_nectia', JSON.stringify(datos))
+      c.usuarios = datos
+    }, tiempo)
   }
 
 }

@@ -12,7 +12,7 @@
         </div>
         <div class="container-fluid">
             <div class="row" >
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let usuario of usuarios | buscador:busqueda; let i = index">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let usuario of usuarios | buscador:busqueda; let i = index" [id]="'usuario_'+ i">
                     <div class="card mb-2">
                         <div class="card-body">
                             <div class="card__acciones">
@@ -29,8 +29,9 @@
         </div>
     </div>
     <div class="contenedor__flotante">
-        <button  class="btn btn-primary boton boton__flotante" (click)="verModalCrear()" data-toggle="modal">
+        <button  class="btn btn-primary boton boton__flotante" (click)="verModalCrear()"  data-toggle="modal">
             <fa-icon [icon]="faPlus"></fa-icon>
+            <span class="ml-1 boton__texto__flotante">Agregar usuario</span>
         </button>
     </div>
 </div>
