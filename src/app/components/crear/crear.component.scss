@@ -1,4 +1,70 @@
+@import '../../../styles/variables.scss';
+
 .toast{
     width: 100%;
     max-width: 2000px;
+}
+
+#modal__crear{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    color: #FFF;
+    .modal-dialog {
+        transform: none;
+        max-width: 3000px;
+        width: 400px;
+        height: 100%;
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-bottom: 0px;
+        .modal-content{
+            border-width: 0px;
+            border-radius: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: map-get($theme-colors, "primary");
+            .toast-body{
+                color:  map-get($theme-colors, "primary");
+            }
+            input{
+                color: map-get($theme-colors, "primary");
+                &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                    color: rgba(map-get($theme-colors, "primary"), .5);
+                }
+            }
+            .close{
+                background-color: #FFF;
+                border-radius: 24px 0px 0px 24px;
+                color:map-get($theme-colors, "primary");
+                opacity: 1;
+                transition: all 0.5s ease;
+                margin-top: 10px;
+                padding: 6px 20px 10px 20px;
+                outline: 0px;
+                &:hover{
+                    padding: 6px 25px 10px 20px;   
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 640px){
+    #modal__crear{
+        padding-right: 0px !important;
+        .modal-dialog {
+            transform: none;
+            max-width: 3000px;
+            height: 100%;
+            width: 100%;
+            margin-top: 0px;
+            .modal-content{
+                border-width: 0px;
+                border-radius: 0px;
+                width: 100%;
+                height: 100%;
+                background-color: map-get($theme-colors, "primary");
+            }
+        }
+    }
 }
